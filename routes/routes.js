@@ -1,7 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { homeRoute } = require('../controller/controller');
+const { 
+    homeRouteGet, 
+    homeRouteParam, 
+    homeRoutePost,
+    apiError, 
+} = require('../controller/controller');
 
-router.get('/', homeRoute);
+router.get('/', homeRouteGet);
+router.get('/:id', homeRouteParam);
+router.get('/:id/*', apiError);
+router.post('/', homeRoutePost);
 
 module.exports = router;
